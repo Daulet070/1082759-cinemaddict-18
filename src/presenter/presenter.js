@@ -6,8 +6,6 @@ import FilmsListTitleView from '../view/films-list-title';
 import FilmsSectionView from '../view/films-section';
 import FilmsSortView from '../view/films-sort';
 import FilmsNavigationView from '../view/main-navigation';
-import StatisticsView from '../view/movies-statistics';
-import ProfileView from '../view/user-profile';
 import ShowMoreBtnView from '../view/show-more-button';
 import FilmDetailsPopupView from '../view/film-details-popup';
 
@@ -20,13 +18,11 @@ export default class Presenter {
   filmsContainer = new FilmsListContainerView();
   listTitle = new FilmsListTitleView();
   movieCards = new MovieCardsView();
-  userProfile = new ProfileView();
-  moviesStatistics = new StatisticsView();
   showMoreBtn = new ShowMoreBtnView();
   filmDetailsPopup = new FilmDetailsPopupView();
 
-  init = (headerContent, mainContent, statistics) => {
-    render(this.userProfile, headerContent);
+  init = (mainContent) => {
+  
     render(this.filmsNavigation, mainContent);
     render(this.filmsSort, mainContent);
     render(this.filmsSection, mainContent);
@@ -35,7 +31,6 @@ export default class Presenter {
     render(this.filmsContainer, this.filmsList.getElement());
     render(this.showMoreBtn, this.filmsList.getElement());
     render(this.movieCards, this.filmsContainer.getElement());
-    render(this.moviesStatistics, statistics);
     render(this.filmDetailsPopup, mainContent);
   };
 }

@@ -22,24 +22,24 @@ import {
   writers
 } from './raw-data';
 
-const getComments = (commentsCount = COMMENTS_COUNT) => {
+const getAllComments = (commentsCount = COMMENTS_COUNT) => {
 
-  const commentBody = (id) => ({
+  const getCommentObj = (id) => ({
     id,
     author: generateData(commentAutors),
     comment: generateData(descriptions),
     date: '2019-05-11T16:12:32.554Z',
-    emotion: generateData(commentEmotions)
+    emotion: commentEmotions
   });
 
-  return Array.from({ length: commentsCount }, (_value, index) => commentBody(index));
+  return Array.from({ length: commentsCount }, (_value, index) => getCommentObj(index));
 };
 
-const getFilms = (filmsCount = FILMS_COUNT) => {
+const getAllFilms = (filmsCount = FILMS_COUNT) => {
 
-  const filmBody = (id) => ({
+  const getFilmObj = (id) => ({
     id,
-    comments: [4, 0],
+    comments: getRandomArr([0, 1, 2, 3, 4]),
     filmInfo: {
       title: generateData(titles),
       alternativeTitle: generateData(titles),
@@ -54,7 +54,7 @@ const getFilms = (filmsCount = FILMS_COUNT) => {
         releaseCountry: generateData(countries)
       },
       runtime: generateData(getRange(moviesDuration.MIN, moviesDuration.MAX)),
-      genre: generateData(genres),
+      genre: getRandomArr(genres),
       description: generateData(descriptions)
     },
     userDetails: {
@@ -65,10 +65,10 @@ const getFilms = (filmsCount = FILMS_COUNT) => {
     }
   });
 
-  return Array.from({ length: filmsCount }, (_value, index) => filmBody(index));
+  return Array.from({ length: filmsCount }, (_value, index) => getFilmObj(index));
 };
 
 export {
-  getFilms,
-  getComments
+  getAllFilms,
+  getAllComments
 };

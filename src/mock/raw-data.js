@@ -1,5 +1,6 @@
-const FILMS_COUNT = 5;
+const FILMS_COUNT = 10;
 const COMMENTS_COUNT = 5;
+const STR_MAX_LENGTH = 140;
 
 const moviesRating = {
   MIN: 1,
@@ -37,6 +38,16 @@ const posters = [
   'the-dance-of-life.jpg',
   'the-great-flamarion.jpg',
   'the-man-with-the-golden-arm.jpg'
+];
+
+const filmInfoDetailsTitles = [
+  'Director',
+  'Writers',
+  'Actors',
+  'Release Date',
+  'Runtime',
+  'Country',
+  'Genres'
 ];
 
 const genres = [
@@ -97,15 +108,18 @@ const commentEmotions = [
   'smile',
   'sleeping',
   'puke',
-  'angry'
+  'angry',
+  'neutral'
 ];
 
 export {
   FILMS_COUNT,
   COMMENTS_COUNT,
+  STR_MAX_LENGTH,
   ageRatings,
   moviesRating,
   moviesDuration,
+  filmInfoDetailsTitles ,
   titles,
   posters,
   descriptions,

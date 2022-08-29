@@ -1,3 +1,7 @@
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+
+dayjs.extend(duration);
 // Функция из интернета по генерации случайного числа из диапазона
 // Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_random
 const getRandomInteger = (a = 0, b = 1) => {
@@ -43,10 +47,22 @@ const generateData = (data) => {
   return data[randomIndex];
 };
 
+const formatStringToDate = (date) => dayjs(date).format('DD MMMM YYYY');
+
+const formatStringToDateWithTime = (date) => dayjs(date).format('YYYY/MM/DD HH:MM');
+
+const formatStringToYear = (date) => dayjs(date).format('YYYY');
+
+const formatMinutesToTime = (minutes) => dayjs.duration(minutes, 'minutes').format('H[h] mm[m]');
+
 export {
   generateData,
   getRandomInteger,
   getRandomFloat,
   getRandomArr,
-  getRange
+  getRange,
+  formatStringToDate,
+  formatStringToDateWithTime,
+  formatStringToYear,
+  formatMinutesToTime
 };

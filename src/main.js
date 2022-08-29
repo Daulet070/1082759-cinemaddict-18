@@ -20,4 +20,3 @@ const filmDetailsPopupPresenter = new FilmDetailsPopupPresenter();
 
 mainContentPresenter.init(mainContent, filmsModel);
 filmDetailsPopupPresenter.init(filmsModel);
-// console.log(filmsModel.getFilms());

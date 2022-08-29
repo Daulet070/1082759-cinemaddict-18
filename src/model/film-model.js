@@ -1,17 +1,17 @@
-import { getComments, getFilms } from '../mock/film-card';
+import { getAllComments, getAllFilms } from '../mock/film-card';
 import { COMMENTS_COUNT, FILMS_COUNT } from '../mock/raw-data';
 
 export default class FilmModel {
-  films = getFilms(FILMS_COUNT);
-  filmCommets = getComments(COMMENTS_COUNT);
+  #allFilms = getAllFilms(FILMS_COUNT);
+  #filmCommets = getAllComments(COMMENTS_COUNT);
 
-  getFilms() {
-    return this.films;
+  get films() {
+    return this.#allFilms;
   }
 
-  getCommets() {
-    const targetComments = this.films.map((film) =>
-      this.filmCommets.filter((comment) =>
+  get commets() {
+    const targetComments = this.#allFilms.map((film) =>
+      this.#filmCommets.filter((comment) =>
         film.comments.includes(comment.id)
       )
     );
